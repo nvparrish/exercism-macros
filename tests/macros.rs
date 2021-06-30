@@ -134,6 +134,12 @@ fn test_compile_fails_only_comma() {
 
 #[test]
 #[ignore]
+fn test_compile_fails_only_commas() {
+    simple_trybuild::compile_fail("only-commas.rs");
+}
+
+#[test]
+#[ignore]
 fn test_compile_fails_single_argument() {
     simple_trybuild::compile_fail("single-argument.rs");
 }

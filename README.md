@@ -126,3 +126,23 @@ having access to some experimental features in the Rust nightly build.  To enabl
 ```$ rustup install nightly```
 
 ```$ rustup default nightly```
+
+## For Documentation
+
+When creating documentation for macros, it is necessary to have a ```#[macro_use] extern crate macros;``` line at the
+top of the test code.
+
+Then, to be able to run the tests, it is necessary to build the crate.
+```shell
+$ rustc --crate-type lib --crate-name macros src/lib.rs
+```
+
+The documentation tests can be then executed using
+```shell
+$ rustdoc --test --crate-name macros src/lib.rs --extern macros=libmacros.rlib
+```
+
+The documentation can be crated using
+```shell
+$ cargo doc
+```
